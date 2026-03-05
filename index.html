@@ -231,4 +231,135 @@
         @media (max-width: 900px) {
             section { padding: 80px 15px; height: auto; min-height: 100vh; scroll-snap-align: none; }
             .page-container { height: auto; scroll-snap-type: none; overflow-y: visible; }
-            .hero h2 { font-size:
+            .hero h2 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+            .areas .grid { grid-template-columns: repeat(2, 1fr); }
+            header { flex-direction: column; gap: 10px; padding: 15px; }
+            .mixed-content, .mixed-content:nth-child(even) { flex-direction: column; text-align: center; gap: 20px; }
+            .image-placeholder, .text-content { width: 100%; height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🚕 מוניות הנגב והדרום VIP</h1>
+        <a href="tel:050-0000000" class="btn">חייג עכשיו</a>
+    </header>
+
+    <div class="page-container">
+        
+        <section class="hero">
+            <h2>נסיעה בטוחה ומהירה לכל יעד</h2>
+            <p>מוניות באזור באר שבע והנגב, הסעות לנתב״ג ולכל חלקי הארץ. שירות ה-VIP שמגיע לכם.</p>
+            <a href="tel:050-0000000" class="btn">הזמן מונית עכשיו</a>
+        </section>
+
+        <section class="why-us">
+            <h2 class="section-title">למה לבחור בנו?</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">🕒</div>
+                    <h3>זמינות 24/7</h3>
+                    <p>שירות מוניות מסביב לשעון, בכל שעה.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🚗</div>
+                    <h3>רכבים חדישים</h3>
+                    <p>נקיים, מרווחים לחוויית נסיעה חלקה.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🛡️</div>
+                    <h3>אמינות ובטיחות</h3>
+                    <p>הפרטיות שלכם חשובה לנו. אנחנו מחויבים לבטיחות שלכם.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🤝</div>
+                    <h3>שירות מקצועי</h3>
+                    <p>נהגים אדיבים ומנוסים ביותר.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="areas">
+            <h2 class="section-title">אזורי פעילות</h2>
+            <div class="grid">
+                <div class="card"><h3>באר שבע</h3><p>בירת הנגב</p></div>
+                <div class="card"><h3>נתיבות</h3><p>יישובי הסביבה</p></div>
+                <div class="card"><h3>אופקים</h3><p>שירות מהיר</p></div>
+                <div class="card"><h3>שדרות</h3><p>בכל שעה</p></div>
+                <div class="card"><h3>יישובי הנגב</h3><p>איסוף מכל מקום</p></div>
+                <div class="card"><h3>מועצות אזוריות</h3><p>אשכול, מרחבים, שדות נגב</p></div>
+            </div>
+        </section>
+
+        <section class="mixed-section">
+            
+            <div class="mixed-content">
+                <div class="image-placeholder">🚗</div>
+                <div class="text-content">
+                    <h3>מוניות בדרום והארץ</h3>
+                    <p>אנחנו מתמחים במתן שירות מוניות VIP בכל חלקי הנגב. מהנסיעות הבינמוטות בעיר ועד הסעות לכל יעד אחר בארץ, אנחנו כאן כדי להעניק לכם את השירות המקצועי ביותר במחירים הוגנים.</p>
+                    <a href="tel:050-0000000" class="btn">הזמן עכשיו</a>
+                </div>
+            </div>
+
+            <div class="mixed-content">
+                <div class="image-placeholder">✈️</div>
+                <div class="text-content">
+                    <h3>נסיעות לנתב״ג</h3>
+                    <p>הסעות לשדה התעופה בן גוריון וממנו. צוות הנהגים שלנו מנוסה בהסעות לנתב"ג, ומבטיח איסוף מדויק וסיוע מלא עם המזוודות. נסיעה בטוחה ונוחה במחירים משתלמים ביותר.</p>
+                    <a href="tel:050-0000000" class="btn">חייג להזמנה</a>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title">מה הלקוחות אומרים</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"שירות מצוין! הנהג הגיע בדיוק בזמן, הרכב היה נקי ומרווח."</p>
+                    <div class="testimonial-name">משה ב. | ב"ש</div>
+                </div>
+                <div class="card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"נסיעה נוחה מאוד לנתב"ג. הנהג סייע לי עם המזוודות והיה אדיב במיוחד."</p>
+                    <div class="testimonial-name">שרית ל. | אופקים</div>
+                </div>
+                <div class="card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"תמיד זמינים, גם בשעות הקטנות של הלילה. שירות VIP אמיתי."</p>
+                    <div class="testimonial-name">אבי ק. | שדרות</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ready">
+            <h2>מוכנים לנסיעה?</h2>
+            <a href="tel:050-0000000" class="btn">חייג עכשיו</a>
+        </section>
+
+        <footer>
+            <p><strong>מוניות הנגב והדרום VIP</strong> | מספקים שירותי הסעות מקצועיים</p>
+            <p>טלפון להזמנות: 050-0000000</p>
+            <p>
+                <a onclick="showPrivacyPolicy()">מדיניות פרטיות ותנאי שימוש</a>
+                | <a href="mailto:info@taxi.co.il">צרו קשר</a>
+            </p>
+            <p><small>© 2026 כל הזכויות שמורות.</small></p>
+        </footer>
+
+    </div> <a href="https://wa.me/972500000000?text=שלום,%20אשמח%20להזמין%20מונית" class="whatsapp-float" target="_blank">
+         WhatsApp 💬
+    </a>
+
+    <script>
+        function showPrivacyPolicy() {
+            alert("מדיניות פרטיות:\n\nהפרטיות שלכם חשובה לנו. האתר אינו אוסף מידע אישי ללא הסכמתכם, ואינו משתף מספרי טלפון או פרטי התקשרות עם שום צד שלישי.");
+        }
+    </script>
+
+</body>
+</html>
