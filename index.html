@@ -3,45 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מוניות הנגב והדרום - מונית עד הבית</title>
-    <meta name="description" content="מוניות באזור באר שבע והנגב, שדה התעופה ולכל הארץ. שירות מקצועי, אמין ומהיר 24/7.">
+    <title>מוניות הנגב והדרום VIP - נסיעה בטוחה ומהירה לכל יעד</title>
+    <meta name="description" content="מוניות באזור באר שבע והנגב, מוניות לנתב״ג ולכל הארץ. שירות ה-VIP שמגיע לכם, זמין 24/7.">
     <style>
         /* הגדרות עיצוב כלליות - CSS Inline */
         :root {
-            --primary-color: #fbc02d; /* צהוב מונית */
-            --dark-color: #212121;
-            --light-color: #f5f5f5;
+            --primary-color: #fbc02d; /* צהוב-זהב מונית */
+            --dark-color: #0d0d0d;
+            --card-dark: #1a1a1a;
+            --text-main: #f5f5f5;
+            --text-secondary: #aaa;
         }
         
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            font-family: 'Segoe UI', 'Heebo', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-color);
+            color: var(--text-main);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* סרגל עליון */
+        /* --- ONE-PAGE SCROLL EFFECT --- */
+        /* אפקט גלילה אוטומטי לכל סעיף בגובה מסך מלא */
+        .page-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory; /* מגדיר גלילה מלאה לכל סעיף */
+        }
+
+        section {
+            height: 100vh;
+            scroll-snap-align: start; /* כל סעיף ייצמד לתחילת המסך */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        /* --- הדר (Fixed Header) --- */
         header {
-            background-color: var(--dark-color);
+            background-color: rgba(0, 0, 0, 0.9);
             color: white;
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
         header h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary-color);
+            margin: 0;
         }
 
-        /* כפתורים */
         .btn {
             background-color: var(--primary-color);
             color: var(--dark-color);
@@ -51,64 +75,144 @@
             font-weight: bold;
             transition: background 0.3s;
             display: inline-block;
+            font-size: 1rem;
         }
 
         .btn:hover { background-color: #f9a825; }
 
-        /* אזור ראשי (Hero) */
+        /* סעיף 1: נסיעה בטוחה (Hero) */
         .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1549315482-628d68965551?auto=format&fit=crop&w=1350&q=80') center/cover;
-            color: white;
+            background-color: var(--dark-color);
+            border-bottom: 2px solid #2a2a2a;
         }
 
         .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             color: var(--primary-color);
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
+            font-size: 1.4rem;
+            margin-bottom: 40px;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--text-secondary);
         }
 
-        .hero .btn { font-size: 1.2rem; padding: 15px 35px; }
+        .hero .btn { font-size: 1.3rem; padding: 15px 40px; }
 
-        /* סעיפי מידע - גריד */
-        .section-container { padding: 50px 5%; text-align: center; }
-        .section-container h2 { font-size: 2rem; margin-bottom: 30px; color: var(--dark-color); }
-        
+        /* סעיפים עם כותרות */
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+        }
+
+        /* גריד לכרטיסיות */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
+            width: 100%;
+            max-width: 1200px;
         }
 
         .card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border-bottom: 4px solid var(--primary-color);
+            background: var(--card-dark);
+            padding: 30px 25px;
+            border-radius: 12px;
+            border-bottom: 3px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .card:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(251, 192, 45, 0.1);
+        }
 
-        /* אזורי שירות מיוחדים */
-        .destinations { background-color: #e0e0e0; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--primary-color); }
+        .card p { font-size: 1rem; color: var(--text-secondary); }
 
-        /* כפתור וואטסאפ צף */
+        /* סעיף 2: למה לבחור בנו */
+        .why-us { background-color: #050505; }
+        .icon { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary-color); }
+
+        /* סעיף 3: אזורי פעילות */
+        .areas { background-color: var(--dark-color); }
+        .areas .card h3 { font-size: 1.2rem; margin-bottom: 5px; color: var(--text-main); }
+        .areas .grid { grid-template-columns: repeat(3, 1fr); gap: 15px; } /* 3 עמודות קטנות יותר */
+
+        /* סעיפים משולבים (מוניות בדרום + נתב"ג) */
+        .mixed-section {
+            background-color: #050505;
+            justify-content: space-around;
+            padding-top: 100px; /* מקום להדר */
+        }
+
+        .mixed-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            text-align: right;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 30px;
+        }
+
+        /* פתרון לעיצוב המעורב ללא תמונות */
+        .mixed-content:nth-child(even) { flex-direction: row-reverse; }
+
+        .image-placeholder {
+            width: 45%;
+            height: 300px;
+            background-color: var(--card-dark);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #2a2a2a;
+            font-size: 5rem;
+            color: var(--primary-color);
+        }
+
+        .text-content { width: 50%; }
+        .text-content h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--primary-color); }
+        .text-content p { color: var(--text-secondary); margin-bottom: 20px; }
+
+        /* סעיף 6: חוות דעת */
+        .testimonials { background-color: var(--dark-color); }
+        .testimonials .card p { color: var(--text-main); font-style: italic; font-size: 1.1rem; }
+        .testimonial-stars { color: var(--primary-color); font-size: 1.3rem; margin-bottom: 10px; }
+        .testimonial-name { color: var(--text-secondary); font-size: 0.9rem; margin-top: 15px; }
+
+        /* סעיף 7: מוכנים לנסיעה */
+        .ready { background-color: #050505; text-align: center; }
+        .ready h2 { color: var(--text-main); font-size: 2.8rem; }
+        .ready .btn { font-size: 1.3rem; margin-top: 20px; }
+
+        /* פוטר - חובה לגוגל */
+        footer {
+            background-color: var(--dark-color);
+            color: #666;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 0;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        footer p { margin-bottom: 10px; font-size: 0.9rem; }
+        footer a { color: var(--primary-color); text-decoration: underline; cursor: pointer; }
+
+        /* וואטסאפ צף */
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
+            bottom: 30px;
+            left: 30px;
             background-color: #25d366;
             color: white;
             border-radius: 50px;
@@ -116,99 +220,15 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 1001;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* פוטר - חשוב מאוד למדיניות גוגל */
-        footer {
-            background-color: var(--dark-color);
-            color: #bbb;
-            text-align: center;
-            padding: 30px 15px;
-            margin-top: 40px;
-        }
-
-        footer p { margin-bottom: 10px; }
-        footer a { color: var(--primary-color); text-decoration: underline; cursor: pointer; }
-
         /* התאמה למובייל */
-        @media (max-width: 600px) {
-            .hero h2 { font-size: 2rem; }
-            header { flex-direction: column; gap: 15px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>🚕 מוניות הנגב והדרום</h1>
-        <a href="tel:050-0000000" class="btn">חייג עכשיו</a>
-    </header>
-
-    <section class="hero">
-        <h2>מונית עד הבית</h2>
-        <p>מוניות באזור באר שבע והנגב, מוניות שדה התעופה (נתב״ג) ולכל חלקי הארץ. שירות ה-VIP שמגיע לכם.</p>
-        <a href="tel:050-0000000" class="btn">הזמן מונית עכשיו</a>
-    </section>
-
-    <section class="section-container">
-        <h2>למה לבחור בנו?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>זמינות 24/7</h3>
-                <p>שירות מוניות מסביב לשעון. אנחנו תמיד כאן כדי לקחת אתכם בבטחה ליעד, בכל שעה ביום ובלילה.</p>
-            </div>
-            <div class="card">
-                <h3>שירות מקצועי ביותר</h3>
-                <p>נהגים אדיבים ומנוסים, רכבים חדישים, נקיים ומרווחים לחוויית נסיעה חלקה ונעימה.</p>
-            </div>
-            <div class="card">
-                <h3>מחירים הוגנים</h3>
-                <p>תעריפים משתלמים ושקיפות מלאה ללא הפתעות בדרך. מתחייבים למחיר הטוב ביותר.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-container destinations">
-        <h2>אזורי השירות המרכזיים שלנו</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>✈️ נתב״ג</h3>
-                <p>הסעות לשדה התעופה בן גוריון וממנו. איסוף מדויק וסיוע עם המזוודות.</p>
-            </div>
-            <div class="card">
-                <h3>📍 הדרום</h3>
-                <p>שירות זמין ומהיר בבאר שבע, שדרות, נתיבות, אופקים וכל יישובי הנגב והדרום.</p>
-            </div>
-            <div class="card">
-                <h3>🏛️ ירושלים והמרכז</h3>
-                <p>נסיעות ספיישל מהדרום לירושלים, תל אביב וכל יעד אחר שתבחרו בארץ.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p><strong>מוניות הנגב והדרום</strong> | מספקים שירותי הסעות מקצועיים בכל הארץ</p>
-        <p>טלפון להזמנות: 050-0000000</p>
-        <p>
-            <a onclick="showPrivacyPolicy()">מדיניות פרטיות ותנאי שימוש</a>
-        </p>
-        <p><small>© 2026 כל הזכויות שמורות.</small></p>
-    </footer>
-
-    <a href="https://wa.me/972500000000?text=שלום,%20אשמח%20להזמין%20מונית" class="whatsapp-float" target="_blank">
-        WhatsApp 💬
-    </a>
-
-    <script>
-        function showPrivacyPolicy() {
-            alert("מדיניות פרטיות:\n\nהפרטיות שלכם חשובה לנו. האתר אינו אוסף מידע אישי ללא הסכמתכם, ואינו משתף מספרי טלפון או פרטי התקשרות עם שום צד שלישי. המידע משמש אך ורק לצורך יצירת קשר למתן שירותי המונית שביקשתם.");
-        }
-    </script>
-
-</body>
-</html>
+        @media (max-width: 900px) {
+            section { padding: 80px 15px; height: auto; min-height: 100vh; scroll-snap-align: none; }
+            .page-container { height: auto; scroll-snap-type: none; overflow-y: visible; }
+            .hero h2 { font-size:
